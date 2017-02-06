@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ES6 | 猫大头的技术分析</title>
+  <title>开源应用iD.js（一） | 猫大头的技术分析</title>
   <meta name="author" content="Maodatou">
+  
+  <meta name="description" content="前言：
+想看技术的亲们直接略过这段：一年多的时间里我都在基于iD.js这个开源应用做开发，有一些想法和理解想写一写，希望可以写成一个系列，由浅入深的聊一聊。因为iD.js是osm的一个开源应用，针对地图数据编辑这个方向，专业性比较强，文档材料更是少之又少。于是我经历了一段漫长的研读源码的过程，幸运地">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="开源应用iD.js（一）"/>
   <meta property="og:site_name" content="猫大头的技术分析"/>
 
   
@@ -112,21 +115,24 @@
 		<div class="content">
 			<!-- index -->
 		   
-			  	<h2>归档</h2>
-		  		
-	              <p class="archive-item">
-						<a href="/2016/09/07/ES6学习笔记（二）/" class="archive-title">ES6学习笔记（二）</a><span class="archive post-time">2016-09-07</span>
-					</p>
-			  	
-	              <p class="archive-item">
-						<a href="/2016/09/05/ES6学习笔记 （一）/" class="archive-title">ES6学习笔记</a><span class="archive post-time">2016-09-05</span>
-					</p>
-			  	
-	              <p class="archive-item">
-						<a href="/2016/07/29/ES学习笔记（Promise）/" class="archive-title">Promise</a><span class="archive post-time">2016-07-29</span>
-					</p>
-			  	
-			  <!-- post -->
+
+			  		<h2>开源应用iD.js（一）</h2>
+					
+					<div>
+						<span class="post-time">2016-09-21 14:58:39</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<p>前言：</p>
+<p>想看技术的亲们直接略过这段：<br>一年多的时间里我都在基于iD.js这个开源应用做开发，有一些想法和理解想写一写，希望可以写成一个系列，由浅入深的聊一聊。<br>因为iD.js是osm的一个开源应用，针对地图数据编辑这个方向，专业性比较强，文档材料更是少之又少。<br>于是我经历了一段漫长的研读源码的过程，幸运地是我的menter和小伙伴一路同行，在此过程中大家都得到了很多成长。</p>
+<p>先说一些关键字：d3.js, svg, 地理数据，这些就是iD用的一些东西， 当然iD里面强大的东西远远不止这些。</p>
+<h3 id="1-数据结构"><a href="#1-数据结构" class="headerlink" title="1. 数据结构"></a>1. 数据结构</h3><p>iD采用如下三个对象，表达了所有地理要素以及他们之间的相互关系。<br>entity: 用来表达基础地理要素，包括点，线，面三种，即node, way, area，其中way又是由两个以上的node组成;<br>parentRelations: 表达地理要素之间的关系<br>parentWays: 表达点与道路之间的关系</p>
+<h3 id="2-数据编辑历史"><a href="#2-数据编辑历史" class="headerlink" title="2. 数据编辑历史"></a>2. 数据编辑历史</h3><p>既然是地理数据编辑，记录编辑的增量数据便变成了其中重要的内容。<br>前端加载的所有矢量数据存储在graph这个对象中。数据编辑中的</p>
+
+					</div>
+
+			  <!-- about -->
 			  
 		</div>
 
@@ -135,6 +141,8 @@
 
 		<div class="comment-section">
   
+  
+
 
 </div>
 	</div>

@@ -3,13 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ES6 | 猫大头的技术分析</title>
+  <title>ES6学习笔记（二） | 猫大头的技术分析</title>
   <meta name="author" content="Maodatou">
+  
+  <meta name="description" content="1. 新的数据结构（1）set
+初始化：      var s = new Set();
+输入参数：    var s = new Set([1,2,3,4]);
+添加参数：    s.add(1)
+特点：        Set里面的数据不能重复，相当于使用精确对比===进行判别，’1’和1认为是两">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="ES6学习笔记（二）"/>
   <meta property="og:site_name" content="猫大头的技术分析"/>
 
   
@@ -112,21 +118,42 @@
 		<div class="content">
 			<!-- index -->
 		   
-			  	<h2>归档</h2>
-		  		
-	              <p class="archive-item">
-						<a href="/2016/09/07/ES6学习笔记（二）/" class="archive-title">ES6学习笔记（二）</a><span class="archive post-time">2016-09-07</span>
-					</p>
-			  	
-	              <p class="archive-item">
-						<a href="/2016/09/05/ES6学习笔记 （一）/" class="archive-title">ES6学习笔记</a><span class="archive post-time">2016-09-05</span>
-					</p>
-			  	
-	              <p class="archive-item">
-						<a href="/2016/07/29/ES学习笔记（Promise）/" class="archive-title">Promise</a><span class="archive post-time">2016-07-29</span>
-					</p>
-			  	
-			  <!-- post -->
+
+			  		<h2>ES6学习笔记（二）</h2>
+					
+					<div>
+						<span class="post-time">2016-09-07 15:06:34</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<h2 id="1-新的数据结构"><a href="#1-新的数据结构" class="headerlink" title="1. 新的数据结构"></a>1. 新的数据结构</h2><h4 id="（1）set"><a href="#（1）set" class="headerlink" title="（1）set"></a>（1）set</h4><ul>
+<li>初始化：      var s = new Set();</li>
+<li>输入参数：    var s = new Set([1,2,3,4]);</li>
+<li>添加参数：    s.add(1)</li>
+<li>特点：        Set里面的数据不能重复，相当于使用精确对比===进行判别，’1’和1认为是两个不同的值。<pre><code>有个特例NAN和NAN在Set里面认为是相等的。两个对象始终认为是不相等的。
+</code></pre></li>
+<li><p>适用场景：    数据去重[…new Set(array)] 等同于 Array.from(new Set([1,2,3,4,5]))</p>
+</li>
+<li><p>常用方法：    add(value)：添加某个值，返回Set结构本身。</p>
+<pre><code>delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+has(value)：返回一个布尔值，表示该值是否为Set的成员。
+clear()：清除所有成员，没有返回值。
+keys()：返回键名的遍历器
+values()：返回键值的遍历器
+entries()：返回键值对的遍历器
+forEach()：使用回调函数遍历每个成员
+</code></pre></li>
+</ul>
+<ul>
+<li>注意事项：     (1) Set的遍历顺序是插入的顺序<pre><code>(2) Set结构没有键名只有键值，因此keys()和values()方法的结果一致。
+(3) set.forEach((value, key) =&gt; console.log(&apos;value&apos;, value));
+</code></pre></li>
+</ul>
+
+					</div>
+
+			  <!-- about -->
 			  
 		</div>
 
@@ -135,6 +162,8 @@
 
 		<div class="comment-section">
   
+  
+
 
 </div>
 	</div>

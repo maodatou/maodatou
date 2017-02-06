@@ -1,0 +1,186 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React.js（一） | 猫大头的技术分析</title>
+  <meta name="author" content="Maodatou">
+  
+  <meta name="description" content="1. JSX12345678910//常见例子1var ExampleComponent = React.createClass(&amp;#123;    render: function()&amp;#123;        return (             &amp;lt;div className = &amp;q">
+  
+  <meta name="keywords" content="react, 入门">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="React.js（一）"/>
+  <meta property="og:site_name" content="猫大头的技术分析"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">猫大头的技术分析</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>React.js（一）</h2>
+					
+					<div>
+						<span class="post-time">2016-10-19 11:46:20</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<h3 id="1-JSX"><a href="#1-JSX" class="headerlink" title="1. JSX"></a>1. JSX</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//常见例子1</div><div class="line">var ExampleComponent = React.createClass(&#123;</div><div class="line">    render: function()&#123;</div><div class="line">        return (</div><div class="line">             &lt;div className = &quot;navigation&quot;&gt;</div><div class="line">              hello world!</div><div class="line">             &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 使用变量</div><div class="line">var ExampleComponent = React.createClass(&#123;</div><div class="line">    render: function() &#123;</div><div class="line">        var navigationClass = &apos;navigation&apos;;</div><div class="line">        return (</div><div class="line">            &lt;div className = &#123;navigationClass&#125;&gt;</div><div class="line">                 Hello World!</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="2-渲染组件"><a href="#2-渲染组件" class="headerlink" title="2. 渲染组件"></a>2. 渲染组件</h3><p>（1）基本<br>使用React.render函数说明，渲染什么组件，在哪渲染该组件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var ExampleComponent = React.createClass(&#123;</div><div class="line">    render: function() &#123;</div><div class="line">        var navigationClass = &apos;navigation&apos;;</div><div class="line">        return (</div><div class="line">            &lt;div className = &#123;navigationClass&#125;&gt;</div><div class="line">                 Hello World!</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">React.render(&lt;ExampleComponent /&gt;, doucument.body);</div><div class="line">// 在body节点上渲染组件</div></pre></td></tr></table></figure></p>
+<p>（2）常用方法(跟一遍如下例子，基本就会写一点react了)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">var navigationConfig = &#123;</div><div class="line">    href: &quot;http://www.baidu.com&quot;,</div><div class="line">    text: &quot;baidu&quot;,</div><div class="line">    children:[</div><div class="line">        &#123;</div><div class="line">            href: &quot;http://www.baidu1.com&quot;,</div><div class="line">            text: &quot;baidu1&quot;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            href: &quot;http://www.baidu2.com&quot;,</div><div class="line">            text: &quot;baidu2&quot;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;;</div><div class="line">var Navigation = React.createClass(&#123;</div><div class="line">    </div><div class="line">    componentWillMount: function()&#123;</div><div class="line">        //一般会把只需要执行一次的代码放在这里，当组件被挂载的时候这个函数被调用一次</div><div class="line">    &#125;,</div><div class="line">    componentDidMount: function()&#123;</div><div class="line">        // 组件已经运行render函数，并实际将组件渲染到dom，该函数会被调用</div><div class="line">        var node = this.getDOMNode(); //获取内部dom </div><div class="line">    &#125;,</div><div class="line">    componentWillUnmount: function()&#123;</div><div class="line">        //准备把组件从dom移除时，该函数被调用，比如移除已经绑定的事件监听器</div><div class="line">    &#125;,</div><div class="line">    getInitialState: function()&#123;</div><div class="line">        //初始化this.state, 只在组件装载前被调用一次</div><div class="line">        return &#123;</div><div class="line">            openDropdown: -1</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    getDefaultProps: function()&#123;</div><div class="line">        //为组件属性设置默认值， 只在组件创建时调用一次（在React.createClass之后就会调用）</div><div class="line">        //如果使用ES6的语法，可以Navigation.defaultProps = &#123; config:[] &#125;</div><div class="line">        return &#123;</div><div class="line">            config: []</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    propTypes: function()&#123;</div><div class="line">        //可以随意为每一个属性指定类型</div><div class="line">        config: React.PropTypes.array</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">   render: function () &#123;</div><div class="line">        var config = this.props.config;</div><div class="line">        var items = config.map(function (item) &#123;</div><div class="line">            var children, dropdown;</div><div class="line">            if (item.children) &#123;</div><div class="line">                children = item.children.map(function (child) &#123;</div><div class="line">                    return (</div><div class="line">                        &lt;li className=&quot;navigation__dropdown__item&quot;&gt;</div><div class="line">                            &lt;a className=&quot;navigation__dropdown__link&quot; href=&#123; child.href &#125;&gt;</div><div class="line">                                &#123; child.text &#125;</div><div class="line">                            &lt;/a&gt;</div><div class="line">                        &lt;/li&gt;</div><div class="line">                    );</div><div class="line">                &#125;);</div><div class="line">                dropdown = (</div><div class="line">                    &lt;ul className=&quot;navigation__dropdown&quot;&gt;</div><div class="line">                        &#123; children &#125;</div><div class="line">                    &lt;/ul&gt;</div><div class="line">                );</div><div class="line">            &#125;</div><div class="line">            return (</div><div class="line">                &lt;li className=&quot;navigation__item&quot;&gt;</div><div class="line">                    &lt;a className=&quot;navigation__link&quot; href=&#123; item.href &#125;&gt;</div><div class="line">                        &#123; item.text &#125;</div><div class="line">                    &lt;/a&gt;</div><div class="line">                    &#123; dropdown &#125;</div><div class="line">                &lt;/li&gt;</div><div class="line">                );</div><div class="line">        &#125;);</div><div class="line">        return (</div><div class="line">            &lt;div className=&quot;navigation&quot;&gt;</div><div class="line">                &#123; items &#125;</div><div class="line">            &lt;/div&gt;</div><div class="line">            );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">React.render(&lt;Navigation config=&#123; navigationConfig &#125; /&gt;, document.body);</div></pre></td></tr></table></figure>
+<h3 id="3-一些其他的例子"><a href="#3-一些其他的例子" class="headerlink" title="3. 一些其他的例子"></a>3. 一些其他的例子</h3><p>一般来说，一个组件类由 extends Component 创建。<br>如下例子，是常用写法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">import React, &#123; Component &#125; from &apos;react&apos;;</div><div class="line">import &#123; render &#125; from &apos;react-dom&apos;;</div><div class="line"></div><div class="line">class LikeButton extends Component &#123;</div><div class="line"> //如果使用ES6的语法，可以再构造函数中初始化this.state, 相当于getInitialState</div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">    this.state = &#123; liked: false &#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  handleClick(e) &#123;</div><div class="line">    this.setState(&#123; liked: !this.state.liked &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    const text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;</div><div class="line">    return (</div><div class="line">      &lt;p onClick=&#123;this.handleClick.bind(this)&#125;&gt;</div><div class="line">          You &#123;text&#125; this. Click to toggle.</div><div class="line">      &lt;/p&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render(</div><div class="line">    &lt;LikeButton /&gt;,</div><div class="line">    document.getElementById(&apos;example&apos;)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://yoursite.com"> Maodatou </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

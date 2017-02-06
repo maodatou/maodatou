@@ -1,0 +1,203 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS面向对象 | 猫大头的技术分析</title>
+  <meta name="author" content="Maodatou">
+  
+  <meta name="description" content="1. 一些概念(1) 对象中有很多属性，属性分为两种，一个是数据属性，一个是访问器属性
+
+数据属性特性包括：configurable, enumberable, writable, value方法：修改数据属性默认特性的方法是Object.defineProperty() 
+12345678var ">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="JS面向对象"/>
+  <meta property="og:site_name" content="猫大头的技术分析"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">猫大头的技术分析</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>JS面向对象</h2>
+					
+					<div>
+						<span class="post-time">2016-09-21 11:37:11</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<h3 id="1-一些概念"><a href="#1-一些概念" class="headerlink" title="1. 一些概念"></a>1. 一些概念</h3><p>(1) 对象中有很多属性，属性分为两种，一个是数据属性，一个是访问器属性</p>
+<ul>
+<li><p>数据属性特性<br>包括：configurable, enumberable, writable, value<br>方法：修改数据属性默认特性的方法是Object.defineProperty() </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var person = &#123;&#125;;</div><div class="line">Object.defineProperty(person, &quot;name&quot;,&#123;</div><div class="line">    writable: false,</div><div class="line">    value: &quot;tom&quot;</div><div class="line">&#125;)</div><div class="line">console.log(person.name); // &quot;tom&quot;</div><div class="line">person.name = &quot;jim&quot;;</div><div class="line">console.log(person.name); // &quot;jim&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>访问器属性<br>包括: configurable, enumberable, get, set<br>get: 在读取属性时调用的函数，默认值是undefined<br>set: 在写入属性时调用的函数，默认值是undefined<br>方法：Object.defineProperty()</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var book = &#123;</div><div class="line">    _year: 2004,</div><div class="line">    edition: 1</div><div class="line">&#125;</div><div class="line">Object.defineProperty(book, &quot;year&quot;, &#123;</div><div class="line">    get: function()&#123;</div><div class="line">        return this._year;</div><div class="line">    &#125;,</div><div class="line">    set: function(newValue)&#123;</div><div class="line">        if(newValue &gt; 2004)&#123;</div><div class="line">            this._year = newValue;</div><div class="line">            this.edition += newValue -2004;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">book.year = 2005;</div><div class="line">alert(book.edition); //2</div></pre></td></tr></table></figure>
+<ul>
+<li>定义多个属性的写法</li>
+</ul>
+<p>Object.defineProperties();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var book = &#123;&#125;;</div><div class="line">Object.defineProperties(book,</div><div class="line">    _year:&#123;</div><div class="line">        value: 2004</div><div class="line">    &#125;,</div><div class="line">    edition:&#123;</div><div class="line">        value: 1</div><div class="line">    &#125;,</div><div class="line">    year: &#123;</div><div class="line">        get: function()&#123;</div><div class="line">            return this._year;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>var o = { a: ‘1’};<br>Object.getOwnPropertyDescriptor(o, ‘a’);</p>
+<h3 id="2-创建对象"><a href="#2-创建对象" class="headerlink" title="2. 创建对象"></a>2. 创建对象</h3><p>(1) 工厂模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function createPerson(name, age, job)&#123;</div><div class="line">    var o = new Object();</div><div class="line">    o.name = name;</div><div class="line">    o.age = age;</div><div class="line">    o.job = job;</div><div class="line">    o.sayName = function()&#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person1 = createPerson(&apos;a&apos;, 30 , &apos;teacher&apos;);</div><div class="line">var person2 = createPerson(&apos;b&apos;, 31 , &apos;teacher&apos;);</div></pre></td></tr></table></figure></p>
+<p>(2)构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function Person(name, age, job)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">    this.job = job;</div><div class="line">    this.sayName = function()&#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&apos;a&apos;, 30, &apos;teacher&apos;);</div><div class="line">var person2 = new Person(&apos;b&apos;, 31, &apos;teacher&apos;);</div><div class="line"></div><div class="line">// 一些作用域的说明</div><div class="line">// 当作构造函数使用</div><div class="line">var person = new Person(&apos;c&apos;, 32, &apos;teacher&apos;);</div><div class="line">person.sayName(); //&quot;c&quot;</div><div class="line">// 当作普通函数调用</div><div class="line">Person(&apos;d&apos; , 33, &apos;teacher&apos;);</div><div class="line">window.sayName();</div><div class="line">//在另一个对象的作用域中调用</div><div class="line">var o = new Object();</div><div class="line">Person.call(o, &quot;e&quot;, 34, &quot;teacher&quot;);</div><div class="line">o.sayName();</div></pre></td></tr></table></figure></p>
+<p>任何函数只要通过new操作符来调用，那它就可以作为构造函数。同样，<br>任何函数如果不通过new操作符来调用，那它跟普通函数也不会有什么区别。<br>构造函数的主要问题：每个方法都要在每个实例上重新创建一遍。</p>
+<p>(3)原型链<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">    Person.prototype.name = &quot;tom&quot;;</div><div class="line">    Person.prototype.age = 30;</div><div class="line">    Person.prototype.job = &quot;teacher&quot;;</div><div class="line">    Person.prototype.sayName = function()&#123;</div><div class="line">        console.log(this.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var person1 = new Person(&apos;a&apos;, 30, &apos;teacher&apos;);</div><div class="line">var person2 = new Person(&apos;b&apos;, 31, &apos;teacher&apos;);</div><div class="line"></div><div class="line">// 一些常用的方法：</div><div class="line">alert(Person.prototype.isPrototypeOf(person1)); // true</div><div class="line">alert(Person.prototype.isPrototypeOf(person2)); // true</div><div class="line">alert(Object.getPrototypeOf(person1) ==  Person.prototype); // true</div><div class="line">alert(Object.getPropertypeOf(person1).name); // tom</div><div class="line">Object.hasOwnPerperty();</div><div class="line">只在给定的属性存在于对象实例中时，才会返回true</div></pre></td></tr></table></figure></p>
+<p>创建一个新函数，就会为该函数创建一个prototype属性,这个属性指向函数的原型对象。<br>默认情况喜爱，原型对象会自动获取一个constructor（构造函数）属性，这个属性包含一个指向prototype<br>属性所在函数的指针。<br>delte删除符，会删除对象的属性，不会删除原型链里面的属性。</p>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://yoursite.com"> Maodatou </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

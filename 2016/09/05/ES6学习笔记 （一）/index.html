@@ -1,0 +1,252 @@
+	<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6学习笔记 | 猫大头的技术分析</title>
+  <meta name="author" content="Maodatou">
+  
+  <meta name="description" content="1. 箭头函数
+示例（1） 一个参数，代码块只有一行
+
+1234var f = v =&amp;gt;vvar f = function(v)&amp;#123;    return v;&amp;#125;
+
+示例（2）没有参数，代码块只有一行
+
+1234var f = () =&amp;gt;5var f = function">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ES6学习笔记"/>
+  <meta property="og:site_name" content="猫大头的技术分析"/>
+
+  
+  
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
+  
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
+</head>
+
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">猫大头的技术分析</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9 center-content">
+	
+
+		<div class="content">
+			<!-- index -->
+		   
+
+			  		<h2>ES6学习笔记</h2>
+					
+					<div>
+						<span class="post-time">2016-09-05 15:07:03</span>
+					</div>	
+					
+
+					<div class="article-content">
+						<h2 id="1-箭头函数"><a href="#1-箭头函数" class="headerlink" title="1. 箭头函数"></a>1. 箭头函数</h2><ul>
+<li>示例（1） 一个参数，代码块只有一行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var f = v =&gt;v</div><div class="line">var f = function(v)&#123;</div><div class="line">    return v;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>示例（2）没有参数，代码块只有一行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var f = () =&gt;5</div><div class="line">var f = function()&#123;</div><div class="line">    return 5;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>示例（3） 有多个参数，代码块只有一行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var sum = (num1, num2) =&gt; num1 + num2;</div><div class="line">var sum = function(num1, num2)&#123;</div><div class="line">    return num1 + num2;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>示例（4） 多个参数，代码块有多条</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var sum = (num1, num2) =&gt; &#123;</div><div class="line">    var s = num1 + num2;</div><div class="line">    return s;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>示例（5）返回一个对象，需要在对象外面加上括号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var getObj = id =&gt; (&#123; attr1 : &apos;attr1&apos;, attr2：&apos;attr2：&apos;&#125;);</div></pre></td></tr></table></figure>
+<h2 id="2-let"><a href="#2-let" class="headerlink" title="2. let"></a>2. let</h2><ul>
+<li>let定义的变量只在let所在的代码块内有效</li>
+<li>let存在暂时性死区(temporal dead zone)<br>如果区域中存在let和consta命令，那个这个区域对let和constant命令生成的变量从一开始就形成了封闭的区域。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var t = &apos;test&apos;; </div><div class="line">if(true)&#123; </div><div class="line">    t = &apos;test1&apos;; //报错 referenceError </div><div class="line">let t; </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>let不允许在相同作用域内，重复声明同一个变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//报错</div><div class="line">function()&#123;</div><div class="line">    let a = 1;</div><div class="line">    var a = 1;</div><div class="line">&#125;</div><div class="line">//报错</div><div class="line">function()&#123;</div><div class="line">    let a = 1;</div><div class="line">    let a = 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-解构赋值"><a href="#3-解构赋值" class="headerlink" title="3.解构赋值"></a>3.解构赋值</h2><h4 id="（1）数组赋值"><a href="#（1）数组赋值" class="headerlink" title="（1）数组赋值"></a>（1）数组赋值</h4><p>ES6允许从数组和对象中提取值，对变量进行赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">var b = 2;</div><div class="line">var c = 3;</div></pre></td></tr></table></figure></p>
+<p>等价于 var [a, b, c] = [1, 2, 3];</p>
+<p>还有一些例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">let [x,,y] = [1,2,3];</div><div class="line">x // 1</div><div class="line">y // 3</div><div class="line"></div><div class="line">let[x, y, ...z] = [&apos;a&apos;];</div><div class="line">x // &apos;a&apos;</div><div class="line">y // undefined</div><div class="line">z // []</div><div class="line"></div><div class="line">let [a, [b], d] = [1, [2, 3], 4];</div><div class="line">a // 1</div><div class="line">b // 2</div><div class="line">d // 4</div></pre></td></tr></table></figure></p>
+<p>默认值的赋值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function f() &#123;</div><div class="line">    console.log(&apos;aaa&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">let [x = f()] = [1];</div></pre></td></tr></table></figure></p>
+<p>等价于下面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let x;</div><div class="line">if ([1][0] === undefined) &#123;</div><div class="line">    x = f();</div><div class="line">&#125; else &#123;</div><div class="line">    x = [1][0];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="（2）对象赋值"><a href="#（2）对象赋值" class="headerlink" title="（2）对象赋值"></a>（2）对象赋值</h4><p>数组赋值是按照顺序依次赋值，而对象赋值是按照属性名进行赋值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var &#123;a, b, c&#125; = &#123;b:&apos;1&apos;,a:&apos;2&apos;&#125;;</div><div class="line">a // 2</div><div class="line">b // 1</div><div class="line">c // undefined</div></pre></td></tr></table></figure></p>
+<p>当变量和属性名不一致<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var &#123;k:v&#125; = &#123;k:&apos;1&apos;, k1:&apos;2&apos;&#125;;</div><div class="line">v // 1</div><div class="line">k // undefined</div></pre></td></tr></table></figure></p>
+<p>可以得到<br><code>var {a, b} = {b:&#39;1&#39;,a:&#39;2&#39;}; 等价于 var {a:a,b:b} = {b:&#39;1&#39;, a:&#39;2&#39;};</code><br>对象的解构赋值机制：先找同名属性，然后再赋值对应变量，真正被赋值的是属性而不是变量。</p>
+<p>对于默认值，对象和数组一样。只有对象的属性严格等于（===）undefined的时候，默认值的生效条件才会成立。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var &#123;x = 1&#125; = &#123;x: undefined&#125;;  // x = 1</div><div class="line">var &#123;x = 1&#125; = &#123;x: null&#125;; // x = 1</div></pre></td></tr></table></figure></p>
+<p>小坑：JS解析器会将开头为大括号的内容理解成一个代码块，而不是赋值语句。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var x;</div><div class="line">&#123;x&#125; = &#123;x:1&#125;;</div><div class="line">//syntaxError: syntax error</div></pre></td></tr></table></figure></p>
+<p>改成 ({x} = {x: 1});</p>
+<p>note: var可以重复声明，let不可以。因此，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let x;</div><div class="line">let (&#123;x&#125; = &#123;x:1&#125;)  //会报错。</div></pre></td></tr></table></figure></p>
+<h4 id="（3）字符串"><a href="#（3）字符串" class="headerlink" title="（3）字符串"></a>（3）字符串</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">    let [a, b, c, d, e] = &apos;hello&apos;</div><div class="line">    a // &quot;h&quot;</div><div class="line">    b // &quot;e&quot;</div><div class="line">    c // &quot;l&quot;</div><div class="line">    d // &quot;l&quot;</div><div class="line">    e // &quot;o&quot;</div><div class="line"></div><div class="line">let &#123;length : len&#125; = &apos;hello&apos;;</div><div class="line">len // 5</div></pre></td></tr></table></figure>
+<h4 id="（4）解构赋值的价值"><a href="#（4）解构赋值的价值" class="headerlink" title="（4）解构赋值的价值"></a>（4）解构赋值的价值</h4><p>以上这么多内容，还是为了活学活用。</p>
+<ul>
+<li>case1: 数值交换</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[x, y] = [y, x];</div></pre></td></tr></table></figure>
+<ul>
+<li>case2: 函数返回多个值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">   // 数组</div><div class="line">    function f()&#123;</div><div class="line">        return [1, 2, 3];</div><div class="line">    &#125;</div><div class="line">    var [a, b, c] = f();</div><div class="line">   // 对象</div><div class="line">    function f()&#123;</div><div class="line">        return &#123;</div><div class="line">            a: 1,</div><div class="line">            b: 2</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">var &#123;a, b&#125; =  f();</div></pre></td></tr></table></figure>
+<ul>
+<li>case3: 函数参数的使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//如果参数是一组有序的值</div><div class="line">function f([x, y])&#123; &#125;</div><div class="line">f([1,2,3]);</div><div class="line">//如果参数是一组无序的值</div><div class="line">function f(&#123;x, y, z&#125;)&#123;  &#125;</div><div class="line">f(&#123;z: 3, y: 2, x:1&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>case4：快速提取JSON数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var jsonData = &#123;</div><div class="line">id: 42,</div><div class="line">status: &quot;OK&quot;,</div><div class="line">data: [867, 5309]</div><div class="line">&#125;;</div><div class="line">let &#123; id, status, data: number &#125; = jsonData;</div><div class="line">console.log(id, status, number);</div><div class="line">// 42, &quot;OK&quot;, [867, 5309]</div></pre></td></tr></table></figure>
+<ul>
+<li>一些小坑：在解构赋值时，如果右边是数值和布尔值时，会先转化为对象。</li>
+</ul>
+<pre><code>let { prop: x } = undefined; // TypeError
+let { prop: y } = null; // TypeError
+</code></pre><p>原因：由于undefined和null 不能转换成对象。</p>
+
+					</div>
+
+			  <!-- about -->
+			  
+		</div>
+
+		<!-- pagination -->
+	  
+
+		<div class="comment-section">
+  
+  
+
+
+</div>
+	</div>
+
+	
+
+</div>
+
+
+		<footer>
+			
+
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2017 <a href="http://yoursite.com"> Maodatou </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+
+		</footer>
+	  </div>
+
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
+
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>
